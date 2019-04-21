@@ -1,0 +1,56 @@
+<!-- 
+  This program was created and written by Shaqueir Tardif
+
+  Team Leader: Shaqueir Tardif
+  Team Member: Egbunike Chamberlain
+  ECE 369 - Project
+  Trivia Quiz Website
+
+-->
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>ECE 369 Project - Quiz</title>
+  
+  
+          <!--*************Styling for the Website*************-->
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css')}}">
+      <script
+			  src="https://code.jquery.com/jquery-3.4.0.js"
+			  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+			  crossorigin="anonymous"></script>
+
+  
+</head>
+
+<body>
+
+ <!--*************Heading*************-->
+  <h1>ECE 369 Trivia Quiz!!</h1>
+  <h2>Created by Shaqueir Tardif and Egbunike Chamberlain</h2>  <!--*************Sub-Heading*************-->
+<div class="quiz-container">
+  <!--<iframe id="AvgVid" width="907" height="377" src="https://www.youtube.com/embed/-iFq6IcAxBc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+  <div id="quiz"></div>
+</div>
+<button id="previous">Previous Question</button>
+<button id="next">Next Question</button>
+<button id="submit">Submit Quiz</button>
+<div id="results"></div>
+<div id = "send">
+  Sending Results to Server...
+</div>
+<!--$('#results').after(<p></p>)-->
+  
+  
+
+    <script  src="{{url_for('static',filename='index.js')}}""></script> <!-- Source for main functionality of website-->
+
+
+
+
+</body>
+
+</html>
