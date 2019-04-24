@@ -1,3 +1,11 @@
+/* This program was created and written by Shaqueir Tardif
+
+  Team Leader: Shaqueir Tardif
+  Team Member: Egbunike Chamberlain
+  Date Submitted: April 24, 2019
+  ECE 369 - Project
+  Trivia Quiz Website */
+
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
 
 body{
@@ -59,6 +67,34 @@ button:hover{
   float: left; 
   margin-right: 50px; 
 }  */
+
+#after_submit {
+	visibility: hidden;
+	background: #ff5459;
+	padding: 10px 20px 10px 20px;
+	width: 400px;
+	border-radius: 20px;
+	float: left;
+	margin-left: 20px;
+	font-size: 30px;
+}
+
+#picture {
+	width: 375px;
+	height: 245px;
+}
+
+#video {
+	visibility: hidden;
+	/* background: #ff5459;
+	padding: 10px 20px 10px 20px;
+	width: 400px;
+	border-radius: 20px;
+	float: left;
+	margin-left: 20px;
+	font-size: 30px; */
+}
+
 .slide{
   position: absolute;
   left: 0px;

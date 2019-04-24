@@ -1,75 +1,63 @@
+/* This program was created and written by Shaqueir Tardif
 
+  Team Leader: Shaqueir Tardif
+  Team Member: Egbunike Chamberlain
+  Date Submitted: April 24, 2019
+  ECE 369 - Project
+  Trivia Quiz Website
 
+*/
 
+//let numCorrect = 0
 (function() {
   const myQuestions = [
     {
       //hideVideo();,
-      question: "Who is the strongest?",
+      question: "What does K.I.S.S. stand for?",
       answers: {
-        a: "Superman",
-        b: "The Terminator",
-        c: "Waluigi, obviously"
+        a: "A popular Rock band where grown men wear lots of makeup",
+        b: "Keep It Silly Stupid",
+        c: "Keep It Stupid Simple",
+        d: "Keep It Super Special"
       },
       correctAnswer: "c"
     },
     {
       //hideVideo();,
-      question: "What is the best site ever created?",
+      question: "Is TCP or UDP better for gaming?",
       answers: {
-        a: "SitePoint",
-        b: "Simple Steps Code",
-        c: "Trick question; they're both the best"
-      },
-      correctAnswer: "c"
-    },
-    {
-      //hideVideo();,
-      question: "Where is Waldo really?",
-      answers: {
-        a: "Antarctica",
-        b: "Exploring the Pacific Ocean",
-        c: "Sitting in a tree",
-        d: "Minding his own business, so stop asking"
+        a: "TCP",
+        b: "UDP",
+        c: "Doesn't Matter",
+        d: "Both will work but there are pros and cons to both; depends on the game and the connection type"
       },
       correctAnswer: "d"
     },
     {
       //hideVideo();,
-      question: "Click answer C",
+      question: "What does TCP mean?",
       answers: {
-        a: "Antarctica",
-        b: "Exploring the Pacific Ocean",
-        c: "Sitting in a tree",
-        d: "Minding his own business, so stop asking"
+        a: "Transmission Control Protocol",
+        b: "Transmission Command Protocol",
+        c: "Transmission Control Program",
+        d: "Total Control Program"
       },
-      correctAnswer: "c"
+      correctAnswer: "a"
     },
     {
       //hideVideo();,
-      question: "Click answer D",
+      question: "What does UDP mean?",
       answers: {
-        a: "Antarctica",
-        b: "Exploring the Pacific Ocean",
-        c: "Sitting in a tree",
-        d: "Minding his own business, so stop asking"
+        a: "User Data Port",
+        b: "Universal Data Port",
+        c: "User Datagram Protocol",
+        d: "User Datagram Port"
       },
-      correctAnswer: "d"
+      correctAnswer: "c"
     },
     {
       //showVideo();,
       question: "Are you excited to see Avengers: Endgame?",
-      answers: {
-        a: "What's Avengers?",
-        b: "I CAN'T WAIT!!!",
-        c: "It's for nerds, I'm good",
-        d: "Haven't caught up yet"
-      },
-      correctAnswer: "b"
-    },
-    {
-    //hideVideo();,
-    question: "Are you excited to see Avengers: Endgame?",
       answers: {
         a: "What's Avengers?",
         b: "I CAN'T WAIT!!!",
@@ -119,7 +107,7 @@
     const answerContainers = quizContainer.querySelectorAll(".answers");
 
     // keep track of user's answers
-    let numCorrect = 0;
+    //let numCorrect = 0;
 
     // for each question...
     myQuestions.forEach((currentQuestion, questionNumber) => {
@@ -158,6 +146,7 @@
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
     sendlabel.style.display = "block"
+    //numCorrect.showGif();
 
     
   }
@@ -207,6 +196,8 @@
   const submitButton = document.getElementById("submit");
   const sendlabel= document.getElementById("send");
 
+
+
   // display quiz right away 
   //hideVideo();
   buildQuiz();
@@ -216,12 +207,38 @@
   const nextButton = document.getElementById("next");
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
-
+  let numCorrect = 0;
+  
   showSlide(0);
 
   // on submit, show results
-  submitButton.addEventListener("click", showResults);
+  submitButton.addEventListener("click", showResults, showGif, showVid);
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
+  document.querySelector("#submit").addEventListener("click", showGif);
+  document.querySelector("#submit").addEventListener("click", showVid);
   
+var pictures = ["win.gif", "meh.jpeg", "penguin.gif"];
+var messages = ["Great job!", "You can do better", "Well, that sucked"];
+
+function showGif() { 
+  if (numCorrect === myQuestions.length){
+    document.getElementById("picture").src = "/static/" + pictures[0];
+    document.getElementById("message").innerHTML = messages[0];
+  }
+else if (numCorrect === 0){
+    document.getElementById("picture").src = "/static/" + pictures[2];
+    document.getElementById("message").innerHTML = messages[2];
+  }
+else {
+      document.getElementById("picture").src = "/static/" + pictures[1];
+      document.getElementById("message").innerHTML = messages[1];
+  }
+  document.getElementById("after_submit").style.visibility = "visible";
+}
+
+function showVid() {
+  document.getElementById("video").style.visibility = "visible";
+}
+
 })();

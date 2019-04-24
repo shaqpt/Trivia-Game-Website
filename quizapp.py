@@ -1,3 +1,13 @@
+#This program was created and written by Shaqueir Tardif
+
+#   Team Leader: Shaqueir Tardif
+#   Team Member: Egbunike Chamberlain
+#   Date Submitted: April 24, 2019
+#   ECE 369 - Project
+#   Trivia Quiz Website
+
+#*********   Received assistance from fellow peer, Aiden Gula, for development of the @app.route("/") routine   ***********
+
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO
 import json
@@ -14,10 +24,17 @@ def start():
 
 @app.route('/api',methods = ['POST'])
 def get():
-    print("Your score is: ")
+    print("Player 1's score is: ")
     print(request.json['Score'])
     return json.dumps({"OK":200})
 
+
+
+# @app.route('/api',methods = ['POST'])
+# def get():
+#     print("Player 2's score is: ")
+#     print(request.json['Score'])
+#     return json.dumps({"OK":200})
 
 # def messageReceived(methods=['GET', 'POST']):
 # print('message was received!!!')
